@@ -182,6 +182,13 @@
 
 <body class="t-body" style="margin:0;">
     <!--allrecords-->
+    <div id="overlay" class="overlay"></div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p>Your submission was successful!</p>
+        </div>
+        <button class="popup-close" onclick="hidePopup()">Close</button>
+    </div>
     <div id="allrecords" class="t-records" data-hook="blocks-collection-content-node" data-tilda-project-id="7288871"
         data-tilda-page-id="41498411" data-tilda-formskey="6556dfcc23584947f75ffb17a7288871" data-tilda-lazy="yes"
         data-tilda-root-zone="one">
@@ -231,10 +238,95 @@
 
                         padding: 0px 15px;
                         border: none;
-                        display: block;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
                         width: 400px;
                         font-weight: 500;
                         height: 75px;
+                    }
+
+                    .embed-submit-btn-loading {
+                        border: 5px solid #f3f3f3;
+                        border-top: 5px solid #5235e8;
+                        border-radius: 50%;
+                        width: 25px;
+                        height: 25px;
+                        animation: spin 1s linear infinite;
+                    }
+
+                    .popup {
+                        display: none;
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background-color: #ffffff;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 15px rgba(82, 53, 232, 0.2);
+                        padding: 25px;
+                        z-index: 1000;
+                        max-width: 300px;
+                        width: 100%;
+                        text-align: center;
+                        border: 2px solid #ece8ff;
+                    }
+
+                    .popup-content {
+                        margin-bottom: 20px;
+                        color: #333;
+                    }
+
+                    .popup-content p {
+                        margin: 0;
+                        font-size: 18px;
+                        font-weight: 500;
+                    }
+
+                    .popup-close {
+                        background-color: #5235e8;
+                        border: none;
+                        color: white;
+                        padding: 12px 24px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;
+                        margin: 4px 2px;
+                        cursor: pointer;
+                        border-radius: 25px;
+                        transition: background-color 0.3s, transform 0.1s;
+                        font-weight: bold;
+                    }
+
+                    .popup-close:hover {
+                        background-color: #4228ba;
+                    }
+
+                    .popup-close:active {
+                        transform: scale(0.98);
+                    }
+
+                    .overlay {
+                        display: none;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(82, 53, 232, 0.1);
+                        backdrop-filter: blur(3px);
+                        z-index: 999;
+                    }
+
+                    @keyframes spin {
+                        0% {
+                            transform: rotate(0deg);
+                        }
+
+                        100% {
+                            transform: rotate(360deg);
+                        }
                     }
 
                     .embed-tn-atom {
@@ -22773,6 +22865,35 @@ position: static;
 
     <script>
         window.addEventListener('load', function () {
+            function createLoader() {
+                const loader = document.createElement('div');
+                loader.className = 'embed-submit-btn-loading';
+                return loader;
+            }
+
+            function insertLoader(parentElement) {
+                const loader = createLoader();
+                loader.id = 'loader-btn-loading'; // Add an id to easily find the loader later
+                parentElement.appendChild(loader);
+            }
+
+            function removeLoader(parentElement) {
+                const loader = parentElement.querySelector('#loader-btn-loading');
+                if (loader) {
+                    parentElement.removeChild(loader);
+                }
+            }
+
+            function showPopup() {
+                document.getElementById('overlay').style.display = 'block';
+                document.getElementById('popup').style.display = 'block';
+            }
+
+            function hidePopup() {
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('popup').style.display = 'none';
+            }
+
             // Select all forms and change their action
             const forms = document.querySelectorAll('form');
             forms.forEach(form => {
@@ -22805,12 +22926,20 @@ position: static;
                 const newButton = document.createElement('button');
                 //newButton.type = 'submit';
                 //newButton.className = 't-submit'; // Add appropriate class(es)
-                newButton.textContent = 'GET YOUR MONEY BACK'; // Set button text
+                newButton.textContent = 'GET BACK YOUR MONEY'; // Set button text
                 newButton.id = 'expertrefund-submitbtn'
                 newButton.classList.add("embed-submit-btn");
 
                 // Add the new button to the submit area
                 submitAreas[i].appendChild(newButton);
+            }
+
+            function removeEmptyAndGetLength(arr) {
+                // Filter out empty strings
+                const filteredArray = arr.filter(item => item !== "");
+
+                // Return the length of the filtered array
+                return { lengthofData: filteredArray.length, filteredArray };
             }
 
 
@@ -22823,32 +22952,37 @@ position: static;
                 const formData = [];
 
                 Array.from(inputitems).forEach((inputitem, index) => {
-                    console.log(inputitem, inputitem.value, index);
-                    formData.push(inputitem.value);
+
+                    if (inputitem.name === 'Phone' || inputitem.name === 'email' || inputitem.name === 'name') {
+                        console.log(inputitem, inputitem.value, inputitem.name, index);
+                        formData.push(inputitem.value);
+                    }
                 });
 
                 Array.from(textareas).forEach((textarea, index) => {
-                    console.log(textarea, textarea.value, index)
-                    formData.push(textarea.value);
+                    if (textarea.name === 'description' || textarea.name.includes('description')) {
+                        console.log(textarea, textarea.value, index)
+                        formData.push(textarea.value);
+                    }
                 });
 
-                sendMessage(formData).then(result => {
-                    console.log('Message sent successfully:', result);
-                    alert('your message has been sent')
-                })
-                    .catch(error => {
-                        console.error('Failed to send message:', error);
-                        // Show error message to user
-                    });
+                async function sendMessage(formData) {
+                    const btnLoading = document.getElementById('expertrefund-submitbtn');
+                    insertLoader(btnLoading);
 
-                async function sendMessage(messageData) {
                     try {
+                        const { lengthofData, filteredArray } = removeEmptyAndGetLength(formData);
+
+                        if (lengthofData < 4) {
+                            throw new Error('Please fill out all fields');
+                        }
+
                         const response = await fetch('/message/new', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
                             },
-                            body: JSON.stringify(messageData),
+                            body: JSON.stringify(filteredArray),
                         });
 
                         if (!response.ok) {
@@ -22861,8 +22995,29 @@ position: static;
                     } catch (error) {
                         console.error('Error sending message:', error);
                         throw error;
+                    } finally {
+                        removeLoader(btnLoading);
                     }
                 }
+
+                // Usage
+                async function handleMessageSend(formData) {
+                    try {
+                        const result = await sendMessage(formData);
+
+                        showPopup();
+
+                        setTimeout(() => {
+                            hidePopup();
+                        }, 3000);
+                    } catch (error) {
+                        alert(error.message || 'An error occurred while sending the message');
+                    }
+                }
+
+                // Example usage
+                handleMessageSend(formData);
+
             });
         });
     </script>
