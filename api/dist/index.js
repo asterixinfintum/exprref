@@ -34,11 +34,6 @@ _mongoose["default"].connect(MONGODB_URI, {
 })["catch"](function (err) {
   return console.error('Error connecting to MongoDB:', err);
 });
-
-// Routes
-app.get('/', function (req, res) {
-  res.send('Welcome to the simple Express server!');
-});
 app.post('/message/new', /*#__PURE__*/function () {
   var _ref = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(req, res) {
     var newRawMessageArray, savedMessageArray;
