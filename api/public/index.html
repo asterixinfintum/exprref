@@ -209,6 +209,40 @@
                         background-repeat: no-repeat;
                     }
 
+                    .embed-logo {
+                        width: 230px !important;
+                        margin: 0 !important;
+                    }
+
+                    .embed-logo-img {
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                    }
+
+                    .embed-submit-btn {
+                        color: #ffffff;
+                        border-radius: 500px;
+                        font-size: 20px;
+                        font-family: Roboto;
+                        cursor: pointer;
+                        background-color: #5235e8;
+                        transition: 0.3s ease all;
+
+                        padding: 0px 15px;
+                        border: none;
+                        display: block;
+                        width: 400px;
+                        font-weight: 500;
+                        height: 75px;
+                    }
+
+                    .embed-tn-atom {
+                        display: flex !important;
+                        align-items: center !important;
+                        width: auto;
+                    }
+
                     @media screen and (max-width: 1439px) {
 
                         #rec670837513 .t396__artboard,
@@ -670,17 +704,24 @@
                         data-artboard-valign="center" data-artboard-upscale="grid">
                         <div class="t396__carrier" data-artboard-recid="670837513"></div>
                         <div class="t396__filter" data-artboard-recid="670837513"></div>
-                        <div class='t396__elem tn-elem tn-elem__6708375131698760958140 ' data-elem-id='1698760958140'
-                            data-elem-type='text' data-field-top-value="32" data-field-left-value="0"
-                            data-field-width-value="184" data-field-axisy-value="top" data-field-axisx-value="left"
-                            data-field-container-value="grid" data-field-topunits-value="px"
-                            data-field-leftunits-value="px" data-field-heightunits-value=""
-                            data-field-widthunits-value="px" data-animate-sbs-event="hover"
+                        <div class='t396__elem tn-elem tn-elem__6708375131698760958140 embed-tn-atom'
+                            data-elem-id='1698760958140' data-elem-type='text' data-field-top-value="32"
+                            data-field-left-value="0" data-field-width-value="184" data-field-axisy-value="top"
+                            data-field-axisx-value="left" data-field-container-value="grid"
+                            data-field-topunits-value="px" data-field-leftunits-value="px"
+                            data-field-heightunits-value="" data-field-widthunits-value="px"
+                            data-animate-sbs-event="hover"
                             data-animate-sbs-opts="[{'ti':0,'mx':0,'my':0,'sx':1,'sy':1,'op':1,'ro':0,'bl':'0','ea':'','dt':0},{'ti':200,'mx':0,'my':0,'sx':1.1,'sy':1.1,'op':1,'ro':0,'bl':'0','ea':'easeIn','dt':0}]"
                             data-field-top-res-480-value="36" data-field-left-res-480-value="10"
                             data-field-top-res-960-value="34">
-                            <div class='tn-atom'>
-                                <a href="https://expertrefund.org/" style="color: inherit">Expert Refund</a>
+                            <div class='tn-atom embed-tn-atom'>
+
+                                <a href="https://expertrefund.org/" style="color: inherit">
+                                    <figure class="embed-logo">
+                                        <img src="/imgs/Screenshot_2024-10-07_at_21.27.40-removebg-preview.png"
+                                            class="embed-logo-img" />
+                                    </figure>
+                                </a>
                             </div>
                         </div>
                         <div class='t396__elem tn-elem tn-elem__6708375131698761030377' data-elem-id='1698761030377'
@@ -22618,7 +22659,7 @@ position: static;
                             data-field-top-res-960-value="240" data-field-left-res-960-value="73"
                             data-field-width-res-960-value="381">
                             <div class='tn-atom' field='tn_text_1698960624268'>
-                                2770 Dufferin St, North York, ON M6B 3R7<br />Canada
+                                131 Keryneias 2113 Aglantzia<br />Cyprus
                             </div>
                         </div>
                         <div class='t396__elem tn-elem tn-elem__6708375261698960624269' data-elem-id='1698960624269'
@@ -22651,7 +22692,7 @@ position: static;
                             data-field-left-res-640-value="251" data-field-width-res-640-value="139"
                             data-field-top-res-960-value="153" data-field-left-res-960-value="73"
                             data-field-width-res-960-value="141">
-                            <div class='tn-atom' field='tn_text_1698960624261'>+13438834499</div>
+
                         </div>
                         <div class='t396__elem tn-elem tn-elem__6708375261698960624273' data-elem-id='1698960624273'
                             data-elem-type='image' data-field-top-value="149" data-field-left-value="140"
@@ -22666,9 +22707,7 @@ position: static;
                             data-field-top-res-960-value="152" data-field-left-res-960-value="37"
                             data-field-width-res-960-value="25">
                             <div class='tn-atom'>
-                                <img class='tn-atom__img t-img'
-                                    data-original='https://static.tildacdn.net/tild3430-3264-4637-b036-316162646366/smartphone.svg'
-                                    alt='' imgfield='tn_img_1698960624273' />
+
                             </div>
                         </div>
                     </div>
@@ -22768,6 +22807,7 @@ position: static;
                 //newButton.className = 't-submit'; // Add appropriate class(es)
                 newButton.textContent = 'GET YOUR MONEY BACK'; // Set button text
                 newButton.id = 'expertrefund-submitbtn'
+                newButton.classList.add("embed-submit-btn");
 
                 // Add the new button to the submit area
                 submitAreas[i].appendChild(newButton);

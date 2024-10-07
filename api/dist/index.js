@@ -24,6 +24,7 @@ app.use(_bodyParser["default"].urlencoded({
 }));
 app.use(_bodyParser["default"].json());
 var staticPath = _path["default"].join(__dirname, '../public');
+app.use(_express["default"]["static"](_path["default"].join(__dirname, '../public')));
 
 // Connect to MongoDB
 _mongoose["default"].connect(MONGODB_URI, {
@@ -48,26 +49,25 @@ app.post('/message/new', /*#__PURE__*/function () {
           return newRawMessageArray.save();
         case 4:
           savedMessageArray = _context.sent;
-          //console.log(savedMessageArray);
-
+          console.log(savedMessageArray);
           res.status(201).json({
             message: "Successfully saved message array",
             savedMessageArray: savedMessageArray
           });
-          _context.next = 12;
+          _context.next = 13;
           break;
-        case 8:
-          _context.prev = 8;
+        case 9:
+          _context.prev = 9;
           _context.t0 = _context["catch"](0);
           console.error('Error in /message/new route:', _context.t0);
           res.status(500).json({
             error: 'An error occurred while saving the message array'
           });
-        case 12:
+        case 13:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[0, 8]]);
+    }, _callee, null, [[0, 9]]);
   }));
   return function (_x, _x2) {
     return _ref.apply(this, arguments);
