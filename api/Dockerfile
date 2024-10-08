@@ -16,8 +16,6 @@ COPY . .
 # Set the environment variable for the port number
 ENV PORT 8001
 
-ENV MONGODB_URI mongodb://db:27017/db
-
 # Inform Docker that the container is listening on the specified port at runtime
 EXPOSE $PORT
 
