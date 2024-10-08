@@ -189,6 +189,178 @@
         </div>
         <button class="popup-close" onclick="hidePopup()">Close</button>
     </div>
+
+    <div class="embedsurvey__loading" style="display: none;">
+        <div class="embedsurvey__loading-spinner"></div>
+        <p>Submitting your survey. Our refund agent will contact you shortly...</p>
+    </div>
+
+    <div class="embedsurvey" id="embedsurvey">
+        <div class="embedsurvey__body">
+            <div class="embedsurvey__body--header">
+                <h2 class="embedsurvey__body--h2">GET YOUR MONEY BACK WITH A FREE CONSULTATION</h2>
+                <span class="embedsurvey__body--currentpage">1/4</span>
+            </div>
+
+            <div class="embedsurvey__content--page active" id="survey-page1">
+                <form class="embedsurvey__form">
+                    <fieldset class="embedsurvey__fieldset">
+                        <legend class="embedsurvey__legend">How much did you invest?</legend>
+
+                        <div class="embedsurvey__option">
+                            <input class="embedsurvey__radio" type="radio" id="income1" name="investmentAmount"
+                                value="less than 5000">
+                            <label class="embedsurvey__label" for="income1">Less than $5,000</label>
+                        </div>
+
+                        <div class="embedsurvey__option">
+                            <input class="embedsurvey__radio" type="radio" id="income2" name="investmentAmount"
+                                value="5000-10000">
+                            <label class="embedsurvey__label" for="income2">$5,000 - $10,000</label>
+                        </div>
+
+                        <div class="embedsurvey__option">
+                            <input class="embedsurvey__radio" type="radio" id="income3" name="investmentAmount"
+                                value="10000-20000">
+                            <label class="embedsurvey__label" for="income3">$10,000 - $20,000</label>
+                        </div>
+
+                        <div class="embedsurvey__option">
+                            <input class="embedsurvey__radio" type="radio" id="income4" name="investmentAmount"
+                                value="21000-40000">
+                            <label class="embedsurvey__label" for="income4">$21,000 - $40,000</label>
+                        </div>
+
+                        <div class="embedsurvey__option">
+                            <input class="embedsurvey__radio" type="radio" id="income5" name="investmentAmount"
+                                value="40000-80000">
+                            <label class="embedsurvey__label" for="income5">$40,000 - $80,000</label>
+                        </div>
+
+                        <div class="embedsurvey__option">
+                            <input class="embedsurvey__radio" type="radio" id="income6" name="investmentAmount"
+                                value="80000-100000">
+                            <label class="embedsurvey__label" for="income6">$80,000 - $100,000</label>
+                        </div>
+
+                        <div class="embedsurvey__option">
+                            <input class="embedsurvey__radio" type="radio" id="income7" name="investmentAmount"
+                                value="100000-150000">
+                            <label class="embedsurvey__label" for="income7">$100,000 - $150,000</label>
+                        </div>
+
+                        <div class="embedsurvey__option">
+                            <input class="embedsurvey__radio" type="radio" id="income8" name="investmentAmount"
+                                value="150000 and up">
+                            <label class="embedsurvey__label" for="income8">$150,000 and up</label>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+            <div class="embedsurvey__content--page" id="survey-page2">
+                <form class="embedsurvey__form">
+                    <fieldset class="embedsurvey__fieldset">
+                        <legend class="embedsurvey__legend">How did you transfer the money?</legend>
+
+                        <div class="embedsurvey__option">
+                            <input class="embedsurvey__radio" type="radio" id="transfer1" name="transferMethod"
+                                value="credit-debit">
+                            <label class="embedsurvey__label" for="transfer1">Credit Card/Debit Card</label>
+                        </div>
+
+                        <div class="embedsurvey__option">
+                            <input class="embedsurvey__radio" type="radio" id="transfer2" name="transferMethod"
+                                value="crypto">
+                            <label class="embedsurvey__label" for="transfer2">BTC/Crypto</label>
+                        </div>
+
+                        <div class="embedsurvey__option">
+                            <input class="embedsurvey__radio" type="radio" id="transfer3" name="transferMethod"
+                                value="wire">
+                            <label class="embedsurvey__label" for="transfer3">Wire Transfer</label>
+                        </div>
+
+                        <div class="embedsurvey__option">
+                            <input class="embedsurvey__radio" type="radio" id="transfer4" name="transferMethod"
+                                value="money-gram">
+                            <label class="embedsurvey__label" for="transfer4">Money Gram/Western Union</label>
+                        </div>
+
+                        <div class="embedsurvey__option">
+                            <input class="embedsurvey__radio" type="radio" id="transfer5" name="transferMethod"
+                                value="cash">
+                            <label class="embedsurvey__label" for="transfer5">Cash</label>
+                        </div>
+
+                        <div class="embedsurvey__option">
+                            <input class="embedsurvey__radio" type="radio" id="transfer6" name="transferMethod"
+                                value="other">
+                            <label class="embedsurvey__label" for="transfer6">Other</label>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+            <div class="embedsurvey__content--page" id="survey-page3">
+                <form class="embedsurvey__form">
+                    <fieldset class="embedsurvey__fieldset">
+                        <legend class="embedsurvey__legend">TELL US ABOUT YOUR CASE</legend>
+
+                        <div class="embedsurvey__textarea-container">
+                            <label for="case-description" class="embedsurvey__label">Please describe your case in
+                                detail:</label>
+                            <textarea id="case-description" name="case-description" class="embedsurvey__textarea"
+                                rows="6" placeholder="Enter the details of your case here..."></textarea>
+                        </div>
+
+
+                    </fieldset>
+                </form>
+            </div>
+
+            <div class="embedsurvey__content--page" id="survey-page4">
+                <form class="embedsurvey__form">
+                    <fieldset class="embedsurvey__fieldset">
+                        <legend class="embedsurvey__legend">Your Contact Information</legend>
+
+                        <div class="embedsurvey__input-container">
+                            <label for="user-name" class="embedsurvey__label">Your Name:</label>
+                            <input type="text" id="user-name" name="user-name" class="embedsurvey__input" required
+                                placeholder="Enter your full name">
+                        </div>
+
+                        <div class="embedsurvey__input-container">
+                            <label for="user-phone" class="embedsurvey__label">Phone Number:</label>
+                            <input type="tel" id="user-phone" name="user-phone" class="embedsurvey__input" required
+                                placeholder="Enter your phone number">
+                        </div>
+
+                        <div class="embedsurvey__input-container">
+                            <label for="user-email" class="embedsurvey__label">Email:</label>
+                            <input type="email" id="user-email" name="user-email" class="embedsurvey__input" required
+                                placeholder="Enter your email address">
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+            <div class="embedsurvey__navbtns">
+                <button class="embedsurvey__navbtns--btn">
+                    <span></span>
+                    <span>Prev</span>
+                </button>
+
+                <button class="embedsurvey__navbtns--btn">
+                    <span></span>
+                    <span>Next</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
     <div id="allrecords" class="t-records" data-hook="blocks-collection-content-node" data-tilda-project-id="7288871"
         data-tilda-page-id="41498411" data-tilda-formskey="6556dfcc23584947f75ffb17a7288871" data-tilda-lazy="yes"
         data-tilda-root-zone="one">
@@ -889,7 +1061,7 @@
                             data-field-left-res-390-value="72" data-field-top-res-480-value="419"
                             data-field-left-res-480-value="117" data-field-top-res-640-value="538"
                             data-field-left-res-640-value="197" data-field-left-res-960-value="357">
-                            <a class='tn-atom' href="#popup:stepform2">LET'S TALK</a>
+                            <a class='tn-atom' id="letstalk">LET'S TALK</a>
                         </div>
                     </div>
                 </div>
@@ -1536,10 +1708,11 @@ position: static;
                                                     <!--/noindex-->
                                                 </div>
                                                 <div class="t-form__submit">
-                                                    <button type="submit" class="t-submit"
+                                                    <button type="submit" class="embed-submit-btn"
                                                         style="color:#ffffff;background-color:#5235e8;border-radius:500px; -moz-border-radius:500px; -webkit-border-radius:500px;text-transform:uppercase;"
-                                                        data-field="buttontitle" data-buttonfieldset="button">GET YOUR
-                                                        MONEY BACK </button>
+                                                        data-field="buttontitle" data-buttonfieldset="button"
+                                                        id="getyourmoneybacknow">GET YOUR
+                                                        MONEY BACK NOW</button>
                                                 </div>
                                             </div>
                                             <div class="t-form__errorbox-bottom">
@@ -6267,7 +6440,7 @@ position: static;
                         data-field-left-res-390-value="72" data-field-top-res-480-value="419"
                         data-field-left-res-480-value="117" data-field-top-res-640-value="538"
                         data-field-left-res-640-value="197" data-field-left-res-960-value="357">
-                        <a class='tn-atom' href="#popup:stepform2">GET A FREE CONSULTATION</a>
+                        <a class='tn-atom' id="letstalknow">GET A FREE CONSULTATION NOW</a>
                     </div>
                 </div>
             </div>
@@ -22894,6 +23067,14 @@ position: static;
                 document.getElementById('popup').style.display = 'none';
             }
 
+            function showLoading() {
+                document.querySelector('.embedsurvey__loading').style.display = 'flex';
+            }
+
+            function hideLoading() {
+                document.querySelector('.embedsurvey__loading').style.display = 'none';
+            }
+
             // Select all forms and change their action
             const forms = document.querySelectorAll('form');
             forms.forEach(form => {
@@ -23019,11 +23200,397 @@ position: static;
                 handleMessageSend(formData);
 
             });
+
+            const getyourmoneybacknow = document.getElementById('getyourmoneybacknow');
+
+            const embedsurvey = document.getElementById('embedsurvey');
+
+            getyourmoneybacknow.addEventListener('click', function (event) {
+                console.log(event);
+            })
+
+            const letstalk = document.getElementById('letstalk');
+            const letstalknow = document.getElementById('letstalknow');
+
+            letstalk.addEventListener('click', (event) => {
+                openSurveyPage();
+            });
+
+            letstalknow.addEventListener('click', (event) => {
+                openSurveyPage();
+            })
+
+            embedsurvey.addEventListener('click', (event) => {
+                // Check if the clicked element is the embedsurvey itself
+                if (event.target === embedsurvey) {
+                    closeSurveyPage();
+                }
+            });
+
+            function openSurveyPage() {
+                const embedsurvey = document.getElementById('embedsurvey');
+                embedsurvey.style.display = 'flex';
+            }
+
+            function closeSurveyPage() {
+                const embedsurvey = document.getElementById('embedsurvey');
+                embedsurvey.style.display = 'none';
+            }
+
+            const surveyAnswers = {
+                investmentAmount: null,
+                transferMethod: null,
+                caseDescription: null,
+                contactInfo: {
+                    name: null,
+                    phone: null,
+                    email: null
+                }
+            };
+
+            const inputFields = ['user-name', 'user-phone', 'user-email'];
+            inputFields.forEach(id => {
+                const inputElement = document.getElementById(id);
+                if (inputElement) {
+                    inputElement.addEventListener('input', handleContactInfoInput);
+                } else {
+                    console.error(`Input field with id "${id}" not found`);
+                }
+            });
+
+            function handleCaseDescriptionInput(event) {
+                surveyAnswers.caseDescription = event.target.value;
+                //console.log('Updated case description:', surveyAnswers.caseDescription);
+            }
+
+            function handleContactInfoInput(event) {
+                const { id, value } = event.target;
+                switch (id) {
+                    case 'user-name':
+                        surveyAnswers.contactInfo.name = value;
+                        break;
+                    case 'user-phone':
+                        surveyAnswers.contactInfo.phone = value;
+                        break;
+                    case 'user-email':
+                        surveyAnswers.contactInfo.email = value;
+                        break;
+                }
+                //console.log('Updated contact info:', surveyAnswers.contactInfo);
+            }
+
+            const caseDescriptionTextarea = document.getElementById('case-description');
+            if (caseDescriptionTextarea) {
+                caseDescriptionTextarea.addEventListener('input', handleCaseDescriptionInput);
+            } else {
+                console.error('Textarea with id "case-description" not found');
+            }
+
+            let currentPageIndex = 0;
+            const totalPages = 4;
+
+            function updatePageDisplay() {
+                const pages = [
+                    document.getElementById('survey-page1'),
+                    document.getElementById('survey-page2'),
+                    document.getElementById('survey-page3'),
+                    document.getElementById('survey-page4')
+                ];
+                const currentPageSpan = document.querySelector('.embedsurvey__body--currentpage');
+                const nextButton = document.querySelector('.embedsurvey__navbtns--btn:last-child');
+                const prevButton = document.querySelector('.embedsurvey__navbtns--btn:first-child');
+
+                // Hide all pages and show the current one
+                pages.forEach((page, index) => {
+                    page.classList.toggle('active', index === currentPageIndex);
+                });
+
+                // Update the page number display
+                currentPageSpan.textContent = `${currentPageIndex + 1}/${totalPages}`;
+
+                // Update button text and visibility
+                nextButton.innerText = currentPageIndex === totalPages - 1 ? 'GET BACK YOUR MONEY' : 'Next';
+                nextButton.id = currentPageIndex === totalPages - 1 ? 'submitsurvey' : '';
+                nextButton.style.visibility = currentPageIndex === totalPages - 1 ? '' : 'visible';
+                prevButton.style.visibility = currentPageIndex === 0 ? 'hidden' : 'visible';
+            }
+
+            function submitSurvey(surveyData) {
+                showLoading();
+
+                fetch('/survey/new', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(surveyData)
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Survey submitted successfully:', data);
+                        // Handle successful submission (e.g., show a success message, redirect user)
+                    })
+                    .catch(error => {
+                        console.error('Error submitting survey:', error);
+                        // Handle errors (e.g., show an error message to the user)
+                    }).finally(() => {
+                        hideLoading();
+                        closeSurveyPage()
+                    });
+            }
+
+            function goToNextPage(event) {
+                if (event.target.id === "submitsurvey") {
+                    submitSurvey(surveyAnswers);
+                }
+
+                if (currentPageIndex < totalPages - 1) {
+                    currentPageIndex++;
+                    updatePageDisplay();
+                }
+            }
+
+            function goToPrevPage() {
+                if (currentPageIndex > 0) {
+                    currentPageIndex--;
+                    updatePageDisplay();
+                }
+            }
+
+            // Initialize the first page as active when the page loads
+            document.addEventListener('DOMContentLoaded', function () {
+                updatePageDisplay();
+            });
+
+            // Add event listeners to the navigation buttons
+            document.querySelector('.embedsurvey__navbtns--btn:last-child').addEventListener('click', goToNextPage);
+            document.querySelector('.embedsurvey__navbtns--btn:first-child').addEventListener('click', goToPrevPage);
+
+            function handleRadioChange(event) {
+                const { name, value } = event.target;
+                surveyAnswers[name] = value;
+            }
+
+            // Add event listeners to all radio buttons
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', handleRadioChange);
+            });
         });
     </script>
 
     <style>
+        .embedsurvey {
+            position: fixed;
+            height: 100vh;
+            width: 100vw;
+            background: rgba(0, 0, 0, .5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
 
+            display: none
+        }
+
+        .embedsurvey__body {
+            max-width: 1000px;
+            width: 90%;
+            /* Responsive width */
+            background: #fff;
+            position: relative;
+            /* Prevent content from spilling out */
+        }
+
+        .embedsurvey__form {
+            min-height: 500px;
+        }
+
+        .embedsurvey__body--header {
+            display: flex;
+            padding: 20px;
+            align-items: center;
+
+            justify-content: space-between;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.10);
+        }
+
+        .embedsurvey__body--h2 {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .embedsurvey__body--currentpage {
+            font-size: 15px;
+        }
+
+        .embedsurvey__navbtns {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .embedsurvey__navbtns--btn {
+            border-radius: 3rem;
+            padding: 10px 20px;
+            background: rgb(82, 53, 232);
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        .embedsurvey__legend {
+            font-size: 25px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            width: 100%;
+            color: rgb(82, 53, 232);
+        }
+
+
+        .embedsurvey__option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .embedsurvey__label {
+            font-size: 16px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .embedsurvey__label:hover {
+            color: rgb(82, 53, 232);
+        }
+
+        .embedsurvey__textarea-container {
+            margin-bottom: 20px;
+        }
+
+        .embedsurvey__radio {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgb(82, 53, 232);
+            border-radius: 4px;
+            margin-right: 10px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .embedsurvey__radio:checked {
+            background-color: rgb(82, 53, 232);
+        }
+
+        .embedsurvey__radio:checked::after {
+            content: '\2714';
+            font-size: 14px;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .embedsurvey__textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgb(82, 53, 232);
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .embedsurvey__textarea:focus {
+            outline: none;
+            border-color: #2980b9;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        .embedsurvey__input-container {
+            margin-bottom: 15px;
+        }
+
+        .embedsurvey__loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .embedsurvey__loading-spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .embedsurvey__loading p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .embedsurvey__input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid rgb(82, 53, 232);
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .embedsurvey__input:focus {
+            outline: none;
+            border-color: rgb(82, 53, 232);
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        .embedsurvey__content--page {
+            display: none;
+        }
+
+        .embedsurvey__content--page.active {
+            display: block;
+        }
     </style>
 </body>
 
