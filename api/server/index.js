@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from 'body-parser';
 import path from 'path';
 import mongoose from 'mongoose';
-import RawMessageArray from './models/rawmessagearray';
+import RawMessageArray from './models/rawmessagearr';
 import Survey from './models/survey';
 
 const app = express();
