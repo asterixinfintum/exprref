@@ -5,6 +5,10 @@ import mongoose from 'mongoose';
 import RawMessageArray from './models/rawmessagearr';
 import Survey from './models/survey';
 
+if (process.env.NODE_ENV !== 'production') {
+    require("dotenv").config();
+}
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/your_database_name';
@@ -30,7 +34,6 @@ app.post('/message/new', async (req, res) => {
         });
 
         const savedMessageArray = await newRawMessageArray.save();
-        console.log(savedMessageArray);
 
         res.status(201).json({
             message: `Successfully saved message array`,
@@ -44,11 +47,21 @@ app.post('/message/new', async (req, res) => {
 
 app.get('/messages', async (req, res) => {
     try {
-        const messages = await RawMessageArray.find();
-        res.status(200).json({
-            message: 'Successfully retrieved all message arrays',
-            data: messages
-        });
+        const { password } = req.query;
+
+        console.log(password)
+
+        if (password) {
+            if (password.length >= process.env.passwordLength && password === process.env.password) {
+                const messages = await RawMessageArray.find();
+                res.status(200).json({
+                    message: 'Successfully retrieved all message arrays',
+                    data: messages
+                });
+            } else {
+                res.status(403).json({ error: 'not allowed' });
+            }
+        }
     } catch (error) {
         console.error('Error in /messages GET route:', error);
         res.status(500).json({ error: 'An error occurred while retrieving message arrays' });
@@ -57,11 +70,19 @@ app.get('/messages', async (req, res) => {
 
 app.get('/surveys', async (req, res) => {
     try {
-        const surveys = await Survey.find();
-        res.status(200).json({
-            message: 'Successfully retrieved all surveys',
-            data: surveys
-        });
+        const { password } = req.query;
+
+        if (password) {
+            if (password.length >= process.env.passwordLength && password === process.env.password) {
+                const surveys = await Survey.find();
+                res.status(200).json({
+                    message: 'Successfully retrieved all surveys',
+                    data: surveys
+                });
+            } else {
+                res.status(403).json({ error: 'not allowed' });
+            }
+        }
     } catch (error) {
         console.error('Error in /surveys GET route:', error);
         res.status(500).json({ error: 'An error occurred while retrieving surveys' });
@@ -105,6 +126,15 @@ app.post('/survey/new', async (req, res) => {
             error: error.message
         });
     }
+});
+
+// This should be the last route
+app.get('/messagespage', (req, res) => {
+    res.sendFile(path.join(staticPath, 'messages.html'));
+});
+
+app.get('/surveyspage', (req, res) => {
+    res.sendFile(path.join(staticPath, 'surveys.html'));
 });
 
 // This should be the last route

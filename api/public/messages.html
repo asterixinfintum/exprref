@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container__body {
+            padding: 20px;
+        }
+        .container__header {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .message {
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .message h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        .message p {
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="container__body" id="container__body">
+            <h1 class="container__header">
+                Messages Here
+            </h1>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    const url = new URL(document.location.href);
+    const urlHref = new URL(document.location.href);
+    const password = urlHref.searchParams.get('password');
+    const params = new URLSearchParams(url.search);
+
+    const messagesContainer = document.querySelector('#container__body');
+
+    fetch(`${url.origin}/messages?password=${password}`, {
+        method: 'GET'
+    })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            const messages = data.data;
+
+            messages.forEach((message) => {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message');
+                messageElement.innerHTML = `
+        <h3>Name: ${message.messages[0]}</h3>
+        <p>Phone Number: ${message.messages[1]}</p>
+        <p>Email: ${message.messages[2]}</p>
+        <p>Message: ${message.messages[3]}</p>
+      `;
+                messagesContainer.appendChild(messageElement);
+                //console.log(message.messages)
+            });
+        })
+        .catch((error) => {
+            console.error('Error fetching /messages:', error);
+        });
+</script>
+
+</html>

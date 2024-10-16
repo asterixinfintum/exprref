@@ -15,6 +15,12 @@
     <!--/metatextblock-->
     <meta name="format-detection" content="telephone=no" />
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
     <link rel="dns-prefetch" href="https://ws.tildacdn.com">
     <link rel="dns-prefetch" href="https://static.tildacdn.net">
     <link rel="shortcut icon" href="https://static.tildacdn.net/tild6232-3437-4438-a238-613632343765/favicon.ico"
@@ -180,7 +186,7 @@
     </script>
 </head>
 
-<body class="t-body" style="margin:0;">
+<body class="t-body" style="margin:0; opacity: 0;">
     <!--allrecords-->
     <div id="overlay" class="overlay"></div>
     <div id="popup" class="popup">
@@ -23004,7 +23010,7 @@ position: static;
         </a>
     </div>
     <!-- Stat -->
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         if (!window.mainTracker) {
             window.mainTracker = 'tilda';
         }
@@ -23028,7 +23034,7 @@ position: static;
             }
             )(document, window, '316a4cf909a49926da46a876958cc67c', 'script', 'https://static.tildacdn.net/js/tilda-stat-1.0.min.js');
         }, 2000);
-    </script>
+    </script>-->
     <!-- Google Tag Manager (noscript) -->
     <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T7VNZDJG" height="0" width="0"
@@ -23037,7 +23043,19 @@ position: static;
     <!-- End Google Tag Manager (noscript) -->
 
     <script>
+        function addRandomQueryParam() {
+            let currentUrl = new URL(window.location.href);
+            currentUrl.searchParams.set('t', new Date().getTime());
+            window.history.replaceState({}, '', currentUrl);
+
+
+        }
+
+        addRandomQueryParam();
+
         window.addEventListener('load', function () {
+            addRandomQueryParam();
+
             function createLoader() {
                 const loader = document.createElement('div');
                 loader.className = 'embed-submit-btn-loading';
@@ -23065,6 +23083,9 @@ position: static;
             function hidePopup() {
                 document.getElementById('overlay').style.display = 'none';
                 document.getElementById('popup').style.display = 'none';
+
+                // Add this line to refresh the page
+                location.reload();
             }
 
             function showLoading() {
@@ -23078,7 +23099,7 @@ position: static;
             // Select all forms and change their action
             const forms = document.querySelectorAll('form');
             forms.forEach(form => {
-                form.action = 'http://localhost:8080';
+                form.action = 'https://expertrefund.org';
                 console.log(`Form action changed to: ${form.action}`);
             });
 
@@ -23098,6 +23119,8 @@ position: static;
             });
 
             const submitAreas = document.getElementsByClassName('tn-form__submit');
+
+            console.log(submitAreas);
 
             for (let i = 0; i < submitAreas.length; i++) {
                 if (submitAreas[i].firstElementChild) {
@@ -23180,6 +23203,8 @@ position: static;
                         removeLoader(btnLoading);
                     }
                 }
+
+
 
                 // Usage
                 async function handleMessageSend(formData) {
@@ -23380,6 +23405,8 @@ position: static;
             document.querySelectorAll('input[type="radio"]').forEach(radio => {
                 radio.addEventListener('change', handleRadioChange);
             });
+
+            document.body.style.opacity = 1;
         });
     </script>
 
