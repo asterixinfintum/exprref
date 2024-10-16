@@ -1,2 +1,4 @@
 node_modules/
 generatepassword.js
+.env
+api/.env
